@@ -445,6 +445,7 @@ SwaggerUi.Views.OperationView = Backbone.View.extend({
       opts.responseContentType = $('div select[name=responseContentType]', $(this.el)).val();
       opts.requestContentType = $('div select[name=parameterContentType]', $(this.el)).val();
       $('.response_throbber', $(this.el)).show();
+      this.model.path = this.model.path.replace(/[*]/g, '');
       if (isFileUpload) {
         $('.request_url', $(this.el)).html('<pre></pre>');
         $('.request_url pre', $(this.el)).text(this.invocationUrl);

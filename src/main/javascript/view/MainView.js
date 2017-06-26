@@ -111,8 +111,8 @@ SwaggerUi.Views.MainView = Backbone.View.extend({
 
   addResource: function(resource, auths){
     // Render a resource and add it to resources li
+    resource.id = resource.id.replace(/[*]/g, '');
     resource.id = resource.id.replace(/[^a-zA-Z\d]/g, function(str) { return str.charCodeAt(0); });
-
     // Make all definitions available at the root of the resource so that they can
     // be loaded by the JSonEditor
     resource.definitions = this.model.definitions;
